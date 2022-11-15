@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>MINHAJ TK</title>
+  </head>
+  <body>
+    <div class="loginbox">
+      <h1>LOGIN HERE</h1>
+      <form id="login-data" method="post">
+        <label>Username</label>
+        <input
+          type="text"
+          id="Username"
+          name="Username"
+          placeholder="Enter Username"
+          required
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Password"
+          required
+        />
+        <input type="Submit" value="Login" />
+        <a href="#">Forgot Password</a><br />
+        <a href="index.html">Don't have an account</a>
+      </form>
+    </div>
+  </body>
+
+  <script>
+    $("#login-data").submit((e) => {
+      e.preventDefault();
+      $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbyXzHbPcKpd2N10c7GFMhKRGInaEf_2JFRwBBxDhbJDo-b3H4zx1xthnXJUb1k1vPN3/exec",
+        data: $("#login-data").serialize(),
+        method: "post",
+        success: function (response) {
+          alert("You are Logged in Successfull");
+          window.location.reload();
+          window.location.href = "home.html";
+        },
+        error: function (err) {
+          alert("Something Error");
+        },
+      });
+    });
+  </script>
+</html>
